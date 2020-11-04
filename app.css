@@ -1,0 +1,341 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    font-size: 62.5%;
+    --fondo: #242E4C;
+}
+body{
+    width: 100%;
+    height: 100vh;
+    font-family: 'Mulish', sans-serif;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--fondo);
+
+}
+.wrapper{
+    width: 60%;
+    margin: auto;
+}
+.sidebar{
+    height: 100px;
+    display: flex;
+    align-items: center;
+}
+.sidebar .logo{
+    font-weight: bold;
+    font-size: 2.3rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    text-shadow: 0 0 6px white;
+}
+.sidebar .logo span{
+    font-size: 2rem;
+    font-weight: 400;
+    margin-left: 15px;
+    text-shadow: none;
+}
+.tabla{
+    width: 100%;
+    margin: auto;
+    margin-top: 50px;
+    overflow: auto;
+    height: 50vh;
+    margin-bottom: 25px;
+}
+
+.tabla::-webkit-scrollbar{
+    width: 1rem;
+    background: none;
+}
+.tabla::-webkit-scrollbar-thumb{
+    background: #97a5ce80;
+    border-radius: 5px;
+}
+.tabla table{
+    width: 100%;
+    margin: 0;
+    padding: 15px;
+    color: #8C9CC4;
+    border-collapse: collapse;
+}
+.tabla table tr{
+    margin: 0;
+    padding: 0;
+}
+.tabla table td{
+    padding: 10px 15px;
+    margin: 5px 0;
+    font-size: 1.5rem;
+    color: white;
+    font-weight: bold;
+}
+.tabla table th{
+    margin: 0;
+    padding: 5px 15px;
+    text-align: left;
+    font-size: 1.2rem;
+    color: #97a5ce80;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+.icon{
+    text-align: right;
+    cursor: pointer;
+}
+.icon:hover{
+    color: #ff0000c7;
+}
+.tabla table .cuerpo{
+    transition: all 0.2s ease;
+}
+.tabla table .cuerpo:hover{
+    background: #1C2540;
+}
+.tabla table .nombre{
+    width: 40%;
+}
+.tabla table .gasto{
+    width: 20%;
+}
+.tabla table .des{
+    width: 30%;
+}
+thead{
+    border-bottom: 3px solid #1C2540;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+.bton{
+    margin: 15px 0;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+.agregar{
+    width: 150px;
+    text-align: center;
+    margin-bottom: 15px ;
+    text-transform: uppercase;
+    display: inline-block;
+    background: black;
+    padding: 8px 20px;
+    border-radius: 50px;
+    color: white;
+    font-weight: 300;
+    font-size: 1.6rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.agregar:hover{
+    transform: scale(0.991);
+}
+#tabla{
+    width: 100%;
+    height: 300px;
+
+}
+#Total{
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: 3px solid black;
+    height: 45px;
+    display: flex;
+    justify-content: space-between;
+}
+#Total p{
+    font-weight: bold;
+    color: white;
+    font-size: 1.5rem;
+    margin-right: 10px;
+}
+#Total span{
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: limegreen;
+}
+/* AÑADIR TABLA */
+.addGasto{
+    position: absolute;
+    transition: all 0.3s ease;
+    transform: translateX(-100%);
+    top: 0;
+    left: 0;
+    background: var(--fondo);
+    width: 100%;
+    height: 100vh;
+}
+.addGasto .container{
+    width: 60%;
+}
+.addGasto h2{
+    margin-top: 5rem;
+    color: white;
+    font-size: 2rem;
+}
+.inputs{
+    margin-top: 3rem;
+    width: 100%;
+}
+.input{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+}
+.input label{
+    font-size: 1.3rem;
+    letter-spacing: 2px;
+    color: #97A5CE;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+.input input,
+.input textarea{
+    transition: all 0.3s ease;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    border: 1px #171F38 solid;
+    background: none;
+    color: white;
+    font-size: 1.5rem;
+    padding: 1.5rem 1rem;
+}
+.input input:focus,
+.input textarea:focus{
+    border-color: green;
+}
+.input textarea{
+    max-width: 100%;
+    min-width: 100%;
+    max-height: 15rem;
+    min-height: 15rem;
+    font-family: 'Mulish', sans-serif;
+}
+.show{
+    transform: translateX(0);
+}
+
+.modal{
+    position: fixed;
+    z-index: 1;
+    overflow: auto;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    transform: translateY(-102vh);
+    transition: all 0.3s ease;
+    background: #00000066;
+}
+.flex{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.contenido-modal{
+    padding: 50px;
+    margin-top: 150px;
+    position: relative;
+    background: #1C2540;
+    width: 30%;
+    height: 50rem;
+    border-radius: 5px;
+    margin: auto;
+    overflow: auto;
+    transition: all 0.3s ease;
+}
+.modalShow{
+    transform: translateY(0);
+}
+.contenido-modal header{
+    position: absolute;
+    top: 5px;
+    right: 0;
+    width: 3rem;
+    height: 3rem;
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+.contenido-modal header:hover{
+    color: #8C9CC4;
+}
+.titulo{
+    font-size: 2.2rem;
+    color:  #8C9CC4;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+.texto-cab{
+    display: flex;
+    margin-bottom: 15px;
+}
+.texto p{
+    font-size: 1.4rem;
+    color: #97A5CE;
+    font-weight: 300;
+    font-weight: bold;
+    margin-bottom: 3px;
+    margin-right: 8px;
+}
+.texto span{
+    font-weight: bold;
+    font-size: 1.4rem;
+    color: white;
+}
+.danger label{
+    color: #eb1a1ab6;
+}
+.danger input,
+.danger textarea{
+    border-color: #eb1a1ab6;
+}
+.danger input:focus,
+.danger textarea:focus{
+    border-color: #eb1a1ab6;
+}
+.move{
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.move:hover{
+    transform: scale(1.03);
+}
+@media (max-width: 1024px){
+    .wrapper{
+        width: 95%;
+        padding: 10px;
+    }
+    .addGasto .wrapper{
+        width: 95%;
+    }
+    .tabla{
+        width: 100%;
+    }
+    .bton{
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .bton a{
+        text-align: center;
+        width: 100%;
+    }
+    #Total{
+        margin-bottom: 15px;
+    }
+    .contenido-modal{
+        width: 90%;
+    }
+}
